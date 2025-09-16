@@ -10,25 +10,31 @@
 
 I'm a **QA Automation Engineer** with **4+ years** of specialized experience in **SaaS FinTech** and **Banking** domains. I'm passionate about ensuring software quality through comprehensive testing strategies and automation frameworks.
 
-- 🔭 Currently working as QA Engineer in FinTech domain
-- 🌱 Continuously learning new testing technologies and methodologies  
-- 👯 Open to collaborate on innovative testing projects
-- 💬 Ask me about **Test Automation**, **API Testing**, **CI/CD Integration**
+
+- 🔭 Currently working as **QA Engineer** in **FinTech** domain
+- 🌱 Continuously learning **AI-powered testing tools** and **cloud technologies**
+- 👯 Open to collaborate on **innovative testing projects** and **open-source contributions**
+- 💬 Ask me about **Test Automation**, **API Testing**, **CI/CD Integration**, **Mobile Testing**
 - 📍 Based in **Hyderabad, India**
-- ⚡ Fun fact: I love breaking things before users do! 🐛
+- ⚡ Fun fact: **I love breaking things before users do!** 🐛
+- 🎯 **Goal**: Contributing to building **robust**, **scalable**, and **user-friendly** software
+
+<br clear="right"/>
 
 ---
 
 ## 🛠️ Tech Stack & Tools
 
-### Programming Languages
+### Languages & Core Technologies
+
 ![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 ![SQL](https://img.shields.io/badge/SQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
 ![Shell Script](https://img.shields.io/badge/Shell_Script-121011?style=for-the-badge&logo=gnu-bash&logoColor=white)
 
-### Testing & Automation Tools
+### Testing & Automation Arsenal</b></summary>
+
 ![Selenium](https://img.shields.io/badge/Selenium-43B02A?style=for-the-badge&logo=selenium&logoColor=white)
 ![Appium](https://img.shields.io/badge/Appium-662D91?style=for-the-badge&logo=appium&logoColor=white)
 ![Postman](https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white)
@@ -48,15 +54,22 @@ I'm a **QA Automation Engineer** with **4+ years** of specialized experience in 
 ![Bitbucket](https://img.shields.io/badge/Bitbucket-0052CC?style=for-the-badge&logo=bitbucket&logoColor=white)
 ![Jenkins](https://img.shields.io/badge/Jenkins-D24939?style=for-the-badge&logo=jenkins&logoColor=white)
 ![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white)
+![Maven](https://img.shields.io/badge/Maven-C71A36?style=for-the-badge&logo=apache-maven&logoColor=white)
+![Gradle](https://img.shields.io/badge/Gradle-02303A?style=for-the-badge&logo=gradle&logoColor=white)
 
-### AI & Development Tools
+### AI & Modern Development
+
 ![GitHub Copilot](https://img.shields.io/badge/GitHub_Copilot-000000?style=for-the-badge&logo=github&logoColor=white)
 ![Claude](https://img.shields.io/badge/Claude-FF6B00?style=for-the-badge&logo=anthropic&logoColor=white)
 ![Cursor](https://img.shields.io/badge/Cursor-007ACC?style=for-the-badge&logo=cursor&logoColor=white)
 
 ### Project Management & Documentation
+
 ![JIRA](https://img.shields.io/badge/JIRA-0052CC?style=for-the-badge&logo=jira&logoColor=white)
+![Azure DevOps](https://img.shields.io/badge/Azure_DevOps-0078D7?style=for-the-badge&logo=azure-devops&logoColor=white)
 ![Confluence](https://img.shields.io/badge/Confluence-172B4D?style=for-the-badge&logo=confluence&logoColor=white)
+![HP ALM](https://img.shields.io/badge/HP_ALM-0078D7?style=for-the-badge&logo=microfocus&logoColor=white)
+![Swagger](https://img.shields.io/badge/Swagger-85EA2D?style=for-the-badge&logo=swagger&logoColor=black)
 
 ---
 
@@ -79,21 +92,22 @@ I'm a **QA Automation Engineer** with **4+ years** of specialized experience in 
 - 🏅 Consistently recognized for automation initiatives and timely project deliverables  
 - ⭐ Multiple client appreciations for outstanding performance and quality delivery
 - 🎯 Acknowledged for innovative testing solutions and process improvements
-- 📈 Successfully delivered 40+ projects with zero production issues
-- 🔧 Expertise in AI-powered development tools for enhanced productivity
+- 📈 Successfully delivered **40+ projects** with **zero production issues**
+- 🔧 Expertise in **AI-powered development tools** for enhanced productivity
 
 ---
 
-## 📊 GitHub Stats
+## 📊 GitHub Analytics
 
 <div align="center">
-  <img height="180em" src="https://github-readme-stats.vercel.app/api?username=Aftab-00&show_icons=true&theme=tokyonight&include_all_commits=true&count_private=true&border_radius=10"/>
-  <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Aftab-00&layout=compact&langs_count=8&theme=tokyonight&include_all_commits=true&count_private=true&border_radius=10"/>
+  <img height="180em" src="https://github-readme-stats.vercel.app/api?username=Aftab-00&show_icons=true&theme=tokyonight&include_all_commits=true&count_private=true&border_radius=15&bg_color=0D1117&hide_border=false&cache_seconds=86400"/> <br>
+  <img height="180em" src="https://streak-stats.demolab.com?user=Aftab-00&theme=tokyonight-duo&short_numbers=true" alt="GitHub Streak" /><br>
+   <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Aftab-00&layout=compact&langs_count=10&theme=tokyonight&include_all_commits=true&count_private=true&border_radius=10&bg_color=0D1117&hide_border=false&cache_seconds=86400"/> <br>
+
+[//]: # (<img src="https://github-readme-streak-stats.herokuapp.com/?user=Aftab-00&theme=tokyonight&border_radius=10&t=1&layout=compact&bg_color=0D1117&hide_border=true&t=1" alt="GitHub Streak" />)
 </div>
 
-<div align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=Aftab-00&theme=tokyonight&border_radius=10" alt="GitHub Streak" />
-</div>
+---
 
 ### 💻 Primary Technologies I Work With
 <div align="center">
@@ -109,7 +123,7 @@ I'm a **QA Automation Engineer** with **4+ years** of specialized experience in 
 
 ---
 
-## 🌐 Connect with Me
+## 🤝 Let's Connect & Collaborate
 
 <div align="center">
 
@@ -122,25 +136,30 @@ I'm a **QA Automation Engineer** with **4+ years** of specialized experience in 
 
 ---
 
-## 🎯 Current Focus
+## 🎯 Current Focus & Learning Journey
 
 - 🔍 Exploring **AI-powered testing tools** and **machine learning** in QA
-- 🚀 Building comprehensive **test automation frameworks**
-- 📱 Advancing **mobile test automation** with **Appium**
-- ☁️ Learning **cloud-based testing solutions**
-- 🤖 Integrating **AI tools** for enhanced testing efficiency
-- 📊 Contributing to **open-source testing projects**
+- 🚀 Building comprehensive **test automation frameworks** with **cloud integration**
+- 📱 Advancing **mobile test automation** with **Appium** and **device farms**
+- ☁️ Learning **cloud-based testing solutions** and **containerized testing**
+- 🤖 Integrating **AI tools** for enhanced testing efficiency and **intelligent test generation**
+- 📊 Contributing to **open-source testing projects** and **community initiatives**
+- 🎓 Pursuing advanced certifications in **cloud technologies** and **DevOps practices**
+
+<br clear="right"/>
 
 ---
 
 ## 📈 Portfolio Highlights
 
-### 🎨 **Interactive Portfolio Website**
-- Built with **HTML5**, **CSS3**, and **Vanilla JavaScript**
-- Features **dark/light mode toggle** with persistent theme selection
-- **Fully responsive design** optimized for all devices
-- **Accessibility-compliant** with ARIA labels and keyboard navigation
-- **SEO optimized** with meta tags and semantic HTML
+
+#### 🌟 **Key Highlights:**
+- ✨ **Modern Design**: Clean, professional interface with smooth animations
+- 🌓 **Dark/Light Mode**: Smart theme toggle with persistent user preferences
+- 📱 **Responsive Design**: Optimized for all devices from mobile to desktop
+- ♿ **Accessibility First**: WCAG compliant with full keyboard navigation
+- ⚡ **Performance Optimized**: Fast loading with optimized assets and lazy loading
+- 🔍 **SEO Ready**: Structured data and meta tags for better discoverability
 
 ### 🔧 **Key Features**
 - ⚡ **Fast loading** with optimized animations
@@ -150,20 +169,24 @@ I'm a **QA Automation Engineer** with **4+ years** of specialized experience in 
 - 📱 **Touch-friendly** interface design
 
 ---
+## 💬 Professional Philosophy
 
-<div align="center">
-  <img src="https://komarev.com/ghpvc/?username=Aftab-00&label=Profile%20views&color=0e75b6&style=flat" alt="Profile views" />
+<div align="justify">
+
+#### 💭 *"Quality is never an accident; it is always the result of intelligent effort."*
+#### 💭 *"Turning bugs into features and tests into trust. Building quality, one commit at a time."*
 </div>
 
-<div align="center">
-
-### 💭 *"Quality is never an accident; it is always the result of intelligent effort."*
-
-</div>
 
 ---
 
 ⭐ **If you find my work interesting, feel free to star my repositories!**
+
 ---
 
-**Thank you for visiting my profile! 😊**
+<div align="center">
+  <img src="https://komarev.com/ghpvc/?username=Aftab-00&label=Profile%20Views&color=blueviolet&style=for-the-badge" alt="Profile views" />
+  <img src="https://img.shields.io/github/followers/Aftab-00?label=Followers&style=for-the-badge&color=blue" alt="GitHub followers" />
+  <img src="https://img.shields.io/github/stars/Aftab-00?label=Stars&style=for-the-badge&color=yellow" alt="GitHub stars" />
+</div>
+</div>
