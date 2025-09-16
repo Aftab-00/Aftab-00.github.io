@@ -11,9 +11,18 @@
     <meta property="og:description" content="Experienced QA Automation Engineer with 4+ years in SaaS FinTech">
     <meta property="og:image" content="https://avatars.githubusercontent.com/u/87675058?v=4">
     <meta property="og:url" content="https://aftab-00.github.io">
+    <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Shaik Mohammad Aftab | QA Automation Engineer">
+    <meta name="twitter:description" content="Experienced QA Automation Engineer with 4+ years in SaaS FinTech">
+    <meta name="twitter:image" content="https://avatars.githubusercontent.com/u/87675058?v=4">
     <link rel="icon" href="https://avatars.githubusercontent.com/u/87675058?v=4" type="image/png">
     <link rel="canonical" href="https://aftab-00.github.io">
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://avatars.githubusercontent.com/u/87675058?v=4" as="image" type="image/jpeg">
+    <link rel="dns-prefetch" href="//testautomationu.applitools.com">
+    <link rel="dns-prefetch" href="//linkedin.com">
+    <link rel="dns-prefetch" href="//github.com">
     <style>
         :root {
           --bg-color: #F7F7F7;
@@ -266,10 +275,11 @@
         }
         section {
           background: var(--section-bg);
+          backdrop-filter: blur(10px);
+          border: 1px solid rgba(255, 255, 255, 0.1);
           margin: 20px 0;
           padding: 25px;
           border-radius: 10px;
-          border: 2px solid var(--section-border);
           box-shadow: 0px 5px 15px var(--hover-shadow);
           transition: transform 0.3s ease-in-out;
           animation: fadeInUp 0.6s ease-out;
@@ -364,6 +374,8 @@
           transition: transform 0.3s ease-in-out, background 0.3s;
           animation: fadeInScale 0.4s ease-out;
           animation-fill-mode: both;
+          position: relative;
+          overflow: hidden;
         }
         @keyframes fadeInScale {
           from {
@@ -938,6 +950,30 @@
           }
         }
 
+        // Simplified toggle function for work experience
+        function toggleWorkDetails(button) {
+          try {
+            const content = button.parentElement.nextElementSibling;
+            if (content && content.classList.contains('collapsible-content')) {
+              const isHidden = content.style.display === 'none' || content.style.display === '';
+
+              if (isHidden) {
+                content.style.display = 'block';
+                button.textContent = 'Hide Details';
+                button.setAttribute('aria-expanded', 'true');
+                content.setAttribute('aria-hidden', 'false');
+              } else {
+                content.style.display = 'none';
+                button.textContent = 'Show Details';
+                button.setAttribute('aria-expanded', 'false');
+                content.setAttribute('aria-hidden', 'true');
+              }
+            }
+          } catch (error) {
+            console.error('Error toggling work details:', error);
+          }
+        }
+
         // Improved initialization with error handling
         document.addEventListener('DOMContentLoaded', function() {
           // Initialize theme
@@ -955,26 +991,6 @@
               }, 500);
             }
           }, 1200);
-
-          // Initialize toggle buttons with better error handling
-          const toggleButtons = document.querySelectorAll('.toggle-btn');
-          toggleButtons.forEach(function(button) {
-            button.addEventListener('click', function() {
-              try {
-                const jobHeader = button.closest('.job-header');
-                const content = jobHeader?.nextElementSibling;
-
-                if (content && content.classList.contains('collapsible-content')) {
-                  const isVisible = content.style.display === 'block';
-                  content.style.display = isVisible ? 'none' : 'block';
-                  button.textContent = isVisible ? 'Show Details' : 'Hide Details';
-                  button.setAttribute('aria-expanded', !isVisible);
-                }
-              } catch (error) {
-                console.error('Error toggling content:', error);
-              }
-            });
-          });
 
           // Enhanced scroll to top functionality
           const scrollToTopBtn = document.querySelector('.scroll-to-top');
@@ -1038,6 +1054,125 @@
             }
           }, 16); // ~60fps
         }, { passive: true });
+
+        // Enhanced performance monitoring
+        function initPerformanceMonitoring() {
+          if ('performance' in window && 'mark' in performance) {
+            performance.mark('portfolio-start');
+
+            window.addEventListener('load', () => {
+              performance.mark('portfolio-loaded');
+              performance.measure('portfolio-load-time', 'portfolio-start', 'portfolio-loaded');
+
+              // Log performance metrics (only in development)
+              if (window.location.hostname === 'localhost') {
+                const measure = performance.getEntriesByName('portfolio-load-time')[0];
+                console.log(`Portfolio loaded in ${measure.duration.toFixed(2)}ms`);
+              }
+            });
+          }
+        }
+
+        // Enhanced accessibility features
+        function initAccessibilityFeatures() {
+          // Add keyboard navigation for custom elements
+          const interactiveElements = document.querySelectorAll('.arsenal-item, .prowess-item, .hobby-item');
+          interactiveElements.forEach((element, index) => {
+            element.setAttribute('tabindex', '0');
+            element.setAttribute('role', 'button');
+
+            element.addEventListener('keydown', (e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                element.click();
+              }
+            });
+          });
+
+          // Add aria-labels for better screen reader support
+          const sections = document.querySelectorAll('section');
+          sections.forEach((section, index) => {
+            const heading = section.querySelector('h2');
+            if (heading && !section.getAttribute('aria-labelledby')) {
+              const id = `section-${index}`;
+              heading.id = id;
+              section.setAttribute('aria-labelledby', id);
+            }
+          });
+        }
+
+        // Enhanced error handling and logging
+        function initErrorHandling() {
+          window.addEventListener('error', (e) => {
+            console.error('Portfolio error:', e.error);
+            // Could send to analytics in production
+          });
+
+          window.addEventListener('unhandledrejection', (e) => {
+            console.error('Unhandled promise rejection:', e.reason);
+            e.preventDefault();
+          });
+        }
+
+        // Initialize all features
+        document.addEventListener('DOMContentLoaded', function() {
+          initPerformanceMonitoring();
+          initAccessibilityFeatures();
+          initErrorHandling();
+
+          // Initialize theme
+          initTheme();
+
+          // Enhanced loading screen
+          setTimeout(() => {
+            const loading = document.querySelector('.loading');
+            if (loading) {
+              loading.classList.add('hidden');
+              setTimeout(() => {
+                if (loading.parentNode) {
+                  loading.remove();
+                }
+              }, 500);
+            }
+          }, 1200);
+
+          // Enhanced scroll to top functionality
+          const scrollToTopBtn = document.querySelector('.scroll-to-top');
+          if (scrollToTopBtn) {
+            const toggleScrollButton = () => {
+              try {
+                const shouldShow = window.scrollY > 300;
+                scrollToTopBtn.classList.toggle('visible', shouldShow);
+                scrollToTopBtn.setAttribute('aria-hidden', !shouldShow);
+              } catch (error) {
+                console.error('Error updating scroll button:', error);
+              }
+            };
+
+            window.addEventListener('scroll', toggleScrollButton, { passive: true });
+            toggleScrollButton(); // Initial check
+          }
+
+          // Enhanced keyboard support
+          const themeToggle = document.querySelector('.theme-toggle');
+          if (themeToggle) {
+            themeToggle.addEventListener('keydown', function(e) {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                toggleTheme();
+              }
+            });
+          }
+
+          // Add error handling for images
+          const images = document.querySelectorAll('img');
+          images.forEach(img => {
+            img.addEventListener('error', function() {
+              this.alt = 'Image could not be loaded';
+              this.style.display = 'none';
+            });
+          });
+        });
     </script>
 </head>
 
@@ -1217,9 +1352,9 @@
                         <h3>Experienced SDET (Software Development Engineer in Test)</h3>
                         <p class="company">4+ Years in SaaS FinTech & Banking Domain</p>
                     </div>
-                    <button class="toggle-btn" aria-expanded="false" aria-controls="experience-details">Show Details</button>
+                    <button class="toggle-btn" aria-expanded="false" aria-controls="experience-details" onclick="toggleWorkDetails(this)">Show Details</button>
                 </div>
-                <ul class="collapsible-content" id="experience-details" aria-hidden="true">
+                <ul class="collapsible-content" id="experience-details" aria-hidden="true" style="display: none;">
                     <li>Extensive experience in both manual and automation testing across various domains including SaaS, FinTech, and Banking applications</li>
                     <li>Designed and implemented comprehensive test automation frameworks using Java, Selenium, Appium, and Cucumber BDD resulting in significant efficiency improvements</li>
                     <li>Led end-to-end testing initiatives for complex enterprise applications including legacy system migrations and modern platform implementations</li>
