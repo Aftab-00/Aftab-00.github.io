@@ -1,0 +1,2122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shaik Mohammad Aftab | QA Automation Expert - Interactive Portfolio</title>
+    <meta name="description" content="Modern interactive portfolio of Shaik Mohammad Aftab - QA Automation Engineer with 4+ years in SaaS FinTech. Specialized in test automation frameworks and quality engineering.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://avatars.githubusercontent.com/u/87675058?v=4" type="image/png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #8b5cf6;
+            --accent: #06b6d4;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --error: #ef4444;
+            --bg-light: #ffffff;
+            --bg-dark: #0f172a;
+            --surface-light: #f8fafc;
+            --surface-dark: #1e293b;
+            --card-light: #ffffff;
+            --card-dark: #334155;
+            --text-light: #1e293b;
+            --text-dark: #f1f5f9;
+            --text-muted-light: #64748b;
+            --text-muted-dark: #94a3b8;
+            --border-light: #e2e8f0;
+            --border-dark: #475569;
+            --shadow-light: rgba(0, 0, 0, 0.1);
+            --shadow-dark: rgba(0, 0, 0, 0.3);
+        }
+
+        [data-theme="light"] {
+            --bg: var(--bg-light);
+            --surface: var(--surface-light);
+            --card: var(--card-light);
+            --text: var(--text-light);
+            --text-muted: var(--text-muted-light);
+            --border: var(--border-light);
+            --shadow: var(--shadow-light);
+        }
+
+        [data-theme="dark"] {
+            --bg: var(--bg-dark);
+            --surface: var(--surface-dark);
+            --card: var(--card-dark);
+            --text: var(--text-dark);
+            --text-muted: var(--text-muted-dark);
+            --border: var(--border-dark);
+            --shadow: var(--shadow-dark);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--bg);
+            overflow-x: hidden;
+            transition: all 0.3s ease;
+        }
+
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        .particle {
+            position: absolute;
+            background: var(--primary);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        [data-theme="dark"] .header {
+            background: rgba(15, 23, 42, 0.8);
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--primary);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Toggle Container - Fixed positioning and improved design */
+        .toggles-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            border-radius: 50px;
+            padding: 8px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        [data-theme="dark"] .toggles-container {
+            background: rgba(15, 23, 42, 0.2);
+            border-color: var(--border-dark);
+        }
+
+        /* File Switcher Toggle - First in order, improved labels */
+        .file-switcher {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 50px;
+            width: 90px;
+            height: 32px;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            overflow: hidden;
+            flex-shrink: 0;
+            order: 1;
+        }
+
+        .file-switcher:hover {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.1);
+        }
+
+        .switcher-slider {
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            width: 42px;
+            height: 24px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 20px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 9px;
+            color: white;
+            font-weight: 600;
+            box-shadow: 0 2px 8px rgba(99, 102, 241, 0.3);
+        }
+
+        .file-switcher.portfolio .switcher-slider {
+            left: 45px;
+        }
+
+        .switcher-labels {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 12px;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-muted);
+            pointer-events: none;
+        }
+
+        .switcher-label {
+            transition: all 0.3s ease;
+            z-index: 1;
+        }
+
+        .file-switcher.portfolio .switcher-label.classic {
+            color: var(--text-muted);
+            opacity: 0.6;
+        }
+
+        .file-switcher.portfolio .switcher-label.modern {
+            color: white;
+            opacity: 1;
+        }
+
+        .file-switcher:not(.portfolio) .switcher-label.classic {
+            color: white;
+            opacity: 1;
+        }
+
+        .file-switcher:not(.portfolio) .switcher-label.modern {
+            color: var(--text-muted);
+            opacity: 0.6;
+        }
+
+        /* Theme Toggle - Second in order, with proper icons */
+        .theme-toggle {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 50px;
+            width: 50px;
+            height: 26px;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+            order: 2;
+        }
+
+        .theme-toggle:hover {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.1);
+        }
+
+        .theme-toggle::before {
+            content: '🌙';
+            position: absolute;
+            left: 2px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        [data-theme="dark"] .theme-toggle::before {
+            content: '☀️';
+            left: 24px;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--bg);
+            overflow-x: hidden;
+            transition: all 0.3s ease;
+        }
+
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        .particle {
+            position: absolute;
+            background: var(--primary);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        [data-theme="dark"] .header {
+            background: rgba(15, 23, 42, 0.8);
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--primary);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Toggle Container - Fixed positioning and improved design */
+        .toggles-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            border-radius: 50px;
+            padding: 8px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        [data-theme="dark"] .toggles-container {
+            background: rgba(15, 23, 42, 0.2);
+            border-color: var(--border-dark);
+        }
+
+        /* File Switcher Toggle - First in order, improved labels */
+        .file-switcher {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 50px;
+            width: 90px;
+            height: 32px;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            overflow: hidden;
+            flex-shrink: 0;
+            order: 1;
+        }
+
+        .file-switcher:hover {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.1);
+        }
+
+        .switcher-slider {
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            width: 42px;
+            height: 24px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 20px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 9px;
+            color: white;
+            font-weight: 600;
+            box-shadow: 0 2px 8px rgba(99, 102, 241, 0.3);
+        }
+
+        .file-switcher.portfolio .switcher-slider {
+            left: 45px;
+        }
+
+        .switcher-labels {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 12px;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-muted);
+            pointer-events: none;
+        }
+
+        .switcher-label {
+            transition: all 0.3s ease;
+            z-index: 1;
+        }
+
+        .file-switcher.portfolio .switcher-label.classic {
+            color: var(--text-muted);
+            opacity: 0.6;
+        }
+
+        .file-switcher.portfolio .switcher-label.modern {
+            color: white;
+            opacity: 1;
+        }
+
+        .file-switcher:not(.portfolio) .switcher-label.classic {
+            color: white;
+            opacity: 1;
+        }
+
+        .file-switcher:not(.portfolio) .switcher-label.modern {
+            color: var(--text-muted);
+            opacity: 0.6;
+        }
+
+        /* Theme Toggle - Second in order, with proper icons */
+        .theme-toggle {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 50px;
+            width: 50px;
+            height: 26px;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+            order: 2;
+        }
+
+        .theme-toggle:hover {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.1);
+        }
+
+        .theme-toggle::before {
+            content: '🌙';
+            position: absolute;
+            left: 2px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        [data-theme="dark"] .theme-toggle::before {
+            content: '☀️';
+            left: 24px;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            padding-top: 100px; /* Add top padding to account for fixed header */
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            z-index: 10;
+        }
+
+        .hero-avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 2rem;
+            border: 4px solid var(--primary);
+            box-shadow: 0 0 30px rgba(99, 102,241, 0.3);
+            animation: pulse 2s infinite;
+            object-fit: cover;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            box-shadow: 0 4px 15px rgba(99, 102,241, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(99, 102,241, 0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 3rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Cards Grid */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .card {
+            background: var(--card);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px var(--shadow);
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px var(--shadow);
+        }
+
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 15px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+
+        .card-description {
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 1rem;
+            margin: 2rem auto;
+            max-width: 1000px;
+            justify-items: center;
+        }
+
+        .skill-item {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 15px;
+            padding: 1.2rem 0.8rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            width: 100%;
+            min-height: 110px;
+            max-width: 140px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 10px 25px var(--shadow);
+        }
+
+        .skill-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            display: block;
+            flex-shrink: 0;
+        }
+
+        .skill-name {
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: var(--text);
+            line-height: 1.2;
+            text-align: center;
+            word-wrap: break-word;
+            hyphens: auto;
+        }
+
+        /* Experience Timeline */
+        .timeline {
+            position: relative;
+            margin: 3rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
+        }
+
+        .timeline-item {
+            position: relative;
+            margin: 3rem 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .timeline-item:nth-child(odd) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-content {
+            background: var(--card);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px var(--shadow);
+            border: 1px solid var(--border);
+            width: calc(50% - 2rem);
+            position: relative;
+        }
+
+        .timeline-dot {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            box-shadow: 0 0 20px rgba(99, 102,241, 0.5);
+        }
+
+        /* Certifications */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .cert-card {
+            background: var(--card);
+            border-radius: 15px;
+            padding: 1.5rem;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cert-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--success), var(--accent));
+        }
+
+        .cert-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px var(--shadow);
+        }
+
+        .cert-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+        }
+
+        .cert-provider {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .cert-link {
+            color: var(--success);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .cert-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Contact Section - Fix email overflow */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Increased min width */
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .contact-card {
+            background: var(--card);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+            overflow: hidden; /* Ensure proper overflow handling */
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px var(--shadow);
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            margin: 0 auto 1rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+        }
+
+        .contact-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+        }
+
+        .contact-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            word-break: break-all; /* Break long email addresses */
+            overflow-wrap: break-word; /* Additional word wrapping */
+            hyphens: auto; /* Enable hyphenation */
+            line-height: 1.4; /* Better line spacing for wrapped text */
+            display: block; /* Ensure proper block display */
+            max-width: 100%; /* Constrain to container width */
+        }
+
+        .contact-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--card);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* Scroll Indicator */
+        .scroll-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+            transform-origin: left;
+            z-index: 1001;
+        }
+
+        /* Back to Top */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 1000;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .toggles-container {
+                top: 15px;
+                right: 15px;
+                gap: 8px;
+                padding: 6px;
+            }
+
+            .file-switcher {
+                width: 80px;
+                height: 28px;
+            }
+
+            .switcher-slider {
+                width: 36px;
+                height: 20px;
+                top: 3px;
+                left: 3px;
+                font-size: 8px;
+            }
+
+            .file-switcher.portfolio .switcher-slider {
+                left: 41px;
+            }
+
+            .switcher-labels {
+                padding: 0 10px;
+                font-size: 10px;
+            }
+
+            .theme-toggle {
+                width: 45px;
+                height: 24px;
+            }
+
+            .theme-toggle::before {
+                font-size: 12px;
+            }
+
+            [data-theme="dark"] .theme-toggle::before {
+                left: 21px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .toggles-container {
+                top: 12px;
+                right: 12px;
+                gap: 6px;
+                padding: 5px;
+            }
+
+            .file-switcher {
+                width: 75px;
+                height: 26px;
+            }
+
+            .switcher-slider {
+                width: 33px;
+                height: 18px;
+                font-size: 7px;
+            }
+
+            .file-switcher.portfolio .switcher-slider {
+                left: 39px;
+            }
+
+            .switcher-labels {
+                padding: 0 9px;
+                font-size: 9px;
+            }
+
+            .theme-toggle {
+                width: 42px;
+                height: 22px;
+            }
+
+            .theme-toggle::before {
+                font-size: 11px;
+            }
+
+            [data-theme="dark"] .theme-toggle::before {
+                left: 19px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .toggles-container {
+                top: 15px;
+                right: 15px;
+                gap: 8px;
+                padding: 6px;
+            }
+
+            .file-switcher {
+                width: 70px;
+                height: 28px;
+            }
+
+            .switcher-slider {
+                width: 32px;
+                height: 20px;
+                top: 3px;
+                left: 3px;
+                font-size: 9px;
+            }
+
+            .file-switcher.portfolio .switcher-slider {
+                left: 35px;
+            }
+
+            .switcher-labels {
+                padding: 0 8px;
+                font-size: 9px;
+            }
+
+            .theme-toggle {
+                width: 45px;
+                height: 24px;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--card);
+                border: 1px solid var(--border);
+                border-radius: 10px;
+                margin: 0 1rem;
+                padding: 1rem;
+                flex-direction: column;
+                gap: 1rem;
+                box-shadow: 0 10px 30px var(--shadow);
+                z-index: 1000;
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            .nav {
+                padding: 1rem;
+                position: relative;
+            }
+
+            .logo {
+                font-size: 1.3rem;
+            }
+
+            .hero {
+                padding: 1rem;
+                min-height: 90vh;
+                padding-top: 120px;
+            }
+
+            .hero-avatar {
+                width: 120px;
+                height: 120px;
+                margin-bottom: 1.5rem;
+            }
+
+            .hero-title {
+                font-size: 2.2rem;
+                margin-bottom: 0.8rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .hero-description {
+                font-size: 1rem;
+                margin-bottom: 2rem;
+                padding: 0 0.5rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.8rem;
+            }
+
+            .btn {
+                width: 200px;
+                padding: 14px 24px;
+                font-size: 0.95rem;
+            }
+
+            .timeline::before {
+                left: 30px;
+            }
+
+            .timeline-item {
+                flex-direction: row !important;
+                margin: 2rem 0;
+            }
+
+            .timeline-content {
+                width: calc(100% - 80px);
+                margin-left: 60px;
+                padding: 1.5rem;
+            }
+
+            .timeline-dot {
+                left: 30px;
+                width: 16px;
+                height: 16px;
+            }
+
+            .cards-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .card {
+                padding: 1.5rem;
+                border-radius: 15px;
+            }
+
+            .card-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.3rem;
+                margin-bottom: 1rem;
+            }
+
+            .card-title {
+                font-size: 1.3rem;
+                margin-bottom: 0.8rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+                gap: 0.8rem;
+            }
+
+            .skill-item {
+                padding: 1.2rem 0.8rem;
+                border-radius: 12px;
+            }
+
+            .skill-icon {
+                font-size: 1.8rem;
+                margin-bottom: 0.4rem;
+            }
+
+            .skill-name {
+                font-size: 0.85rem;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .contact-card {
+                padding: 1.5rem;
+                border-radius: 15px;
+            }
+
+            .contact-icon {
+                width: 45px;
+                height: 45px;
+                font-size: 1.3rem;
+                margin-bottom: 0.8rem;
+            }
+
+            .contact-link {
+                font-size: 0.9rem;
+                word-break: break-all;
+            }
+
+            .cert-grid {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+
+            .cert-card {
+                padding: 1.3rem;
+                border-radius: 12px;
+            }
+
+            .section {
+                padding: 3rem 0;
+            }
+
+            .section-title {
+                font-size: 2rem;
+                margin-bottom: 2rem;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            .back-to-top {
+                bottom: 1.5rem;
+                right: 1.5rem;
+                width: 45px;
+                height: 45px;
+                font-size: 1.1rem;
+            }
+
+            .social-links {
+                gap: 0.8rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .social-link {
+                width: 45px;
+                height: 45px;
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .hero-title {
+                font-size: 1.6rem;
+            }
+
+            .hero-subtitle {
+                font-size: 0.95rem;
+            }
+
+            .btn {
+                width: 160px;
+                padding: 10px 16px;
+                font-size: 0.85rem;
+            }
+
+            .section-title {
+                font-size: 1.4rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+            }
+
+            .skill-item {
+                padding: 0.8rem 0.4rem;
+            }
+
+            .contact-link {
+                font-size: 0.8rem;
+            }
+        }
+
+        /* Touch improvements for mobile */
+        @media (hover: none) and (pointer: coarse) {
+            .card:hover,
+            .skill-item:hover,
+            .cert-card:hover,
+            .contact-card:hover {
+                transform: none;
+            }
+
+            .btn:hover,
+            .nav-link:hover,
+            .social-link:hover {
+                transform: none;
+            }
+
+            .card,
+            .skill-item,
+            .cert-card,
+            .contact-card {
+                transition: background-color 0.2s ease;
+            }
+
+            .card:active,
+            .skill-item:active,
+            .cert-card:active,
+            .contact-card:active {
+                background-color: var(--surface);
+            }
+
+            .btn:active {
+                transform: scale(0.98);
+            }
+        }
+    </style>
+</head>
+<body data-theme="light">
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator" id="scrollIndicator"></div>
+
+    <!-- Animated Background -->
+    <div class="bg-animation" id="bgAnimation"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">Aftab Portfolio</div>
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#philosophy" class="nav-link">Philosophy</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#certifications" class="nav-link">Certifications</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="toggles-container">
+                <div class="file-switcher" id="fileSwitcher">
+                    <div class="switcher-slider"></div>
+                    <div class="switcher-labels">
+                        <span class="switcher-label classic">Resume</span>
+                        <span class="switcher-label modern">Live</span>
+                    </div>
+                </div>
+                <div class="theme-toggle" id="themeToggle"></div>
+            </div>
+            <div class="mobile-menu" id="mobileMenu">
+                <div class="menu-bar"></div>
+                <div class="menu-bar"></div>
+                <div class="menu-bar"></div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <img src="https://avatars.githubusercontent.com/u/87675058?v=4" alt="Shaik Mohammad Aftab" class="hero-avatar">
+            <h1 class="hero-title">Shaik Mohammad Aftab</h1>
+            <p class="hero-subtitle">Senior QA Engineer & Test Automation Specialist</p>
+            <p class="hero-description">
+                I've spent the last 4+ years building test frameworks that actually work in production.
+                From manual testing to full automation suites, I focus on creating reliable, maintainable solutions
+                that help teams ship better software faster. Currently working with SaaS and FinTech products.
+            </p>
+            <div class="cta-buttons">
+                <a href="#contact" class="btn btn-primary">Let's Talk</a>
+                <a href="#about" class="btn btn-outline">See My Work</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <h2 class="section-title">What I Do Best</h2>
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-icon">🔍</div>
+                    <h3 class="card-title">Find What Breaks</h3>
+                    <p class="card-description">
+                        I have a knack for finding edge cases that others miss. Whether it's a complex user flow or
+                        API integration, I test like a user who's having the worst day possible.
+                    </p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">⚙️</div>
+                    <h3 class="card-title">Build Tools That Last</h3>
+                    <p class="card-description">
+                        I write test automation that's actually maintainable. Clean code, proper architecture,
+                        and frameworks that your team will thank you for six months down the line.
+                    </p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🚢</div>
+                    <h3 class="card-title">Ship With Confidence</h3>
+                    <p class="card-description">
+                        My goal is simple: help teams release features without losing sleep. Good testing means
+                        catching issues early and having confidence in what goes to production.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section" id="skills">
+        <div class="container">
+            <h2 class="section-title">Technical Arsenal</h2>
+
+            <!-- Core Languages -->
+            <h3 style="text-align: center; color: var(--text); margin: 2rem 0 1rem 0; font-size: 1.3rem;">Core Languages</h3>
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <span class="skill-icon">☕</span>
+                    <div class="skill-name">Java</div>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-icon">📘</span>
+                    <div class="skill-name">TypeScript</div>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-icon">📜</span>
+                    <div class="skill-name">Shell Script</div>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-icon">🗄️</span>
+                    <div class="skill-name">SQL</div>
+                </div>
+            </div>
+
+            <!-- Web Automation -->
+            <h3 style="text-align: center; color: var(--text); margin: 2rem 0 1rem 0; font-size: 1.3rem;">Web Automation</h3>
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <span class="skill-icon">🔧</span>
+                    <div class="skill-name">Selenium WebDriver</div>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-icon">🎭</span>
+                    <div class="skill-name">Playwright</div>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-icon">🥒</span>
+                    <div class="skill-name">Cucumber (BDD)</div>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-icon">🧪</span>
+                    <div class="skill-name">TestNG</div>
+                </div>
+            </div>
+
+            <!-- Mobile & API Testing -->
+            <h3 style="text-align: center; color: var(--text); margin: 2rem 0 1rem 0; font-size: 1.3rem;">Mobile & API Testing</h3>
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <span class="skill-icon">📱</span>
+                    <div class="skill-name">Appium</div>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-icon">🌐</span>
+                    <div class="skill-name">REST Assured</div>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-icon">📮</span>
+                    <div class="skill-name">Postman</div>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-icon">⚡</span>
+                    <div class="skill-name">Performance Testing</div>
+                </div>
+            </div>
+
+            <!-- Framework & Build Tools -->
+            <h3 style="text-align: center; color: var(--text); margin: 2rem 0 1rem 0; font-size: 1.3rem;">Framework & Build Tools</h3>
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <span class="skill-icon">📊</span>
+                    <div class="skill-name">Maven</div>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-icon">🐙</span>
+                    <div class="skill-name">Git</div>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-icon">📈</span>
+                    <div class="skill-name">Jira</div>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-icon">🗃️</span>
+                    <div class="skill-name">Database Validation</div>
+                </div>
+            </div>
+
+            <!-- CI/CD & DevOps -->
+            <h3 style="text-align: center; color: var(--text); margin: 2rem 0 1rem 0; font-size: 1.3rem;">CI/CD & DevOps</h3>
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <span class="skill-icon">🔄</span>
+                    <div class="skill-name">Jenkins</div>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-icon">🐳</span>
+                    <div class="skill-name">Docker</div>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-icon">🔄</span>
+                    <div class="skill-name">CI/CD Integration</div>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-icon">🌐</span>
+                    <div class="skill-name">Cross-browser Testing</div>
+                </div>
+            </div>
+
+            <!-- Testing Methodologies -->
+            <h3 style="text-align: center; color: var(--text); margin: 2rem 0 1rem 0; font-size: 1.3rem;">Testing Methodologies</h3>
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <span class="skill-icon">🖱️</span>
+                    <div class="skill-name">Manual Testing</div>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-icon">🔌</span>
+                    <div class="skill-name">API Testing</div>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-icon">📋</span>
+                    <div class="skill-name">Test Planning</div>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-icon">🐛</span>
+                    <div class="skill-name">Defect Tracking</div>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-icon">📱</span>
+                    <div class="skill-name">Cross Platform Testing</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testing Philosophy Section -->
+    <section class="section" id="philosophy">
+        <div class="container">
+            <h2 class="section-title">My Testing Philosophy</h2>
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-icon">🏗️</div>
+                    <h3 class="card-title">Framework Architecture</h3>
+                    <p class="card-description">
+                        I build frameworks using Page Object Model with custom utilities for data-driven testing.
+                        Separate test data from test logic, use factory patterns for object creation, and implement
+                        retry mechanisms for flaky tests. Clean separation of concerns makes maintenance easier.
+                    </p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🔄</div>
+                    <h3 class="card-title">Handling Flaky Tests</h3>
+                    <p class="card-description">
+                        Flaky tests kill confidence. I identify root causes: timing issues, environment dependencies,
+                        or poorly written locators. Fix them with explicit waits, stable test data, and better
+                        element identification. If a test fails intermittently, it's not the system - it's the test.
+                    </p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">⚖️</div>
+                    <h3 class="card-title">Tool Selection Strategy</h3>
+                    <p class="card-description">
+                        <strong>Selenium vs Playwright:</strong> Selenium for cross-browser support and team familiarity.
+                        Playwright for modern web apps needing speed and better API testing integration.<br><br>
+                        <strong>REST Assured vs Postman:</strong> Postman for exploratory API testing and documentation.
+                        REST Assured for automated test suites that need to run in CI/CD pipelines.
+                    </p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🎯</div>
+                    <h3 class="card-title">Test Environment Management</h3>
+                    <p class="card-description">
+                        Each environment serves a purpose: Dev for quick feedback, Staging mirrors Production,
+                        Performance for load testing. I use Docker containers for consistent test environments
+                        and database seeding for reliable test data. No shared state between test runs.
+                    </p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🚀</div>
+                    <h3 class="card-title">Fast Feedback Loops</h3>
+                    <p class="card-description">
+                        Tests should fail fast and give actionable feedback. I design test suites to run critical
+                        paths first, use parallel execution, and create clear failure messages that tell developers
+                        exactly what broke and where. Screenshots and logs for UI failures, request/response for APIs.
+                    </p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">👥</div>
+                    <h3 class="card-title">Team Collaboration</h3>
+                    <p class="card-description">
+                        I onboard new QA engineers by pairing on test design, reviewing their automation code,
+                        and teaching debugging techniques. Work with developers on testable design patterns and
+                        help product managers understand testing effort for user stories. Quality is everyone's job.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="section" id="experience">
+        <div class="container">
+            <h2 class="section-title">Where I've Been</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>QA Automation Engineer</h3>
+                        <h4>Fintech & Payments based SaaS Product Startup</h4>
+                        <p><strong>May 2025 - Present (4+ months)</strong></p>
+                        <p>Leading QA for a SaaS product serving 25K+ users. Built automation framework that reduced regression testing from 3 days to 6 hours, enabling weekly releases instead of monthly. Implemented API contract testing that caught 15+ integration issues before production. Currently rolling out mobile test automation for iOS/Android apps with 90% coverage on critical user flows.</p>
+                        <p><strong>Recent achievements:</strong> Established testing standards for 2 new team members, reduced production defects by 60% through better test coverage analysis, and integrated performance testing into CI pipeline.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>QA Automation Engineer</h3>
+                        <h4>MNC Company</h4>
+                        <p><strong>November 2021 - May 2025</strong></p>
+                        <p>Built test automation frameworks from scratch for enterprise applications serving 100K+ users. Maintained 1,800+ automated tests across 12 microservices using Page Object Model and custom utilities. Reduced deployment risk by 75% through comprehensive API testing suite covering 150+ endpoints. Mentored 3 junior QA engineers and established testing best practices that the team still follows today.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recent Projects Section -->
+    <section class="section" id="projects">
+        <div class="container">
+            <h2 class="section-title">Recent Projects</h2>
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-icon">💳</div>
+                    <h3 class="card-title">FinTech Payment Flow Automation</h3>
+                    <p class="card-description">
+                        Built end-to-end automation for payment processing handling 15K+ daily transactions.
+                        Used Selenium with Page Object Model + custom retry mechanisms. Caught critical payment bug
+                        in staging that would have cost $30K/day in failed transactions.
+                    </p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🔌</div>
+                    <h3 class="card-title">Microservices API Testing Suite</h3>
+                    <p class="card-description">
+                        Created comprehensive API testing framework with REST Assured covering 200+ endpoints
+                        across 8 microservices. Implemented contract testing to catch integration issues early.
+                        Reduced API-related production bugs by 80%.
+                    </p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">📱</div>
+                    <h3 class="card-title">Cross-Platform Mobile Testing</h3>
+                    <p class="card-description">
+                        Designed mobile automation strategy using Appium for iOS/Android apps. Built parallel
+                        execution setup with Docker containers reducing test execution from 4 hours to 45 minutes.
+                        Achieved 95% code coverage on critical user paths.
+                    </p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">⚡</div>
+                    <h3 class="card-title">Performance Testing Pipeline</h3>
+                    <p class="card-description">
+                        Implemented automated performance testing using JMeter in CI/CD pipeline. Identified
+                        memory leaks and database bottlenecks before production. Established baseline metrics
+                        and alerts for response time degradation.
+                    </p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🗄️</div>
+                    <h3 class="card-title">Test Data Management Solution</h3>
+                    <p class="card-description">
+                        Created test data management framework reducing environment setup time from 2 hours to
+                        15 minutes. Used database seeding scripts + API calls for consistent test data across
+                        environments. Eliminated 90% of test failures due to bad data.
+                    </p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🌐</div>
+                    <h3 class="card-title">Browser Compatibility Framework</h3>
+                    <p class="card-description">
+                        Built Selenium Grid setup for parallel cross-browser testing (Chrome, Firefox, Safari, Edge).
+                        Integrated with BrowserStack for real device testing. Reduced compatibility testing cycle
+                        from 2 days to 3 hours while improving coverage.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section class="section" id="certifications">
+        <div class="container">
+            <h2 class="section-title">Certifications & Learning</h2>
+            <div class="cert-grid">
+                <div class="cert-card">
+                    <h4 class="cert-title">ISTQB - Certified Tester Foundation Level (CTFL)</h4>
+                    <p class="cert-provider">ISTQB | 2025</p>
+                    <a href="#" class="cert-link">Certified →</a>
+                </div>
+                <div class="cert-card">
+                    <h4 class="cert-title">Google Cloud Platform - Cloud Fundamentals</h4>
+                    <p class="cert-provider">Google Cloud</p>
+                    <a href="#" class="cert-link">Completed →</a>
+                </div>
+                <div class="cert-card">
+                    <h4 class="cert-title">Selenium WebDriver with Java</h4>
+                    <p class="cert-provider">Test Automation University</p>
+                    <a href="#" class="cert-link">Completed →</a>
+                </div>
+                <div class="cert-card">
+                    <h4 class="cert-title">Introduction to TestNG</h4>
+                    <p class="cert-provider">Test Automation University</p>
+                    <a href="#" class="cert-link">Completed →</a>
+                </div>
+                <div class="cert-card">
+                    <h4 class="cert-title">Automating API tests with REST Assured</h4>
+                    <p class="cert-provider">Test Automation University</p>
+                    <a href="#" class="cert-link">Completed →</a>
+                </div>
+                <div class="cert-card">
+                    <h4 class="cert-title">API Test Automation</h4>
+                    <p class="cert-provider">Test Automation University</p>
+                    <a href="#" class="cert-link">Completed →</a>
+                </div>
+                <div class="cert-card">
+                    <h4 class="cert-title">Java Programming</h4>
+                    <p class="cert-provider">Test Automation University</p>
+                    <a href="#" class="cert-link">Completed →</a>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem; padding: 2rem; background: var(--surface); border-radius: 15px; border: 1px solid var(--border);">
+                <h3 style="color: var(--text); margin-bottom: 1rem; font-size: 1.2rem;">Currently Exploring</h3>
+                <p style="color: var(--text-muted); font-size: 1rem; line-height: 1.6; max-width: 600px; margin: 0 auto;">
+                    Studying AI-assisted testing tools and exploring Kubernetes testing strategies.
+                    Next up: AWS certification to better understand cloud-native testing approaches.
+                    Always learning, but I focus on practical skills that solve real problems.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section" id="contact">
+        <div class="container">
+            <h2 class="section-title">Let's Work Together</h2>
+            <p style="text-align: center; color: var(--text-muted); margin-bottom: 3rem; font-size: 1.1rem;">
+                Looking for someone who can actually build test automation that works?
+                Or maybe you just want to talk shop about testing? Drop me a line.
+            </p>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-icon">💼</div>
+                    <h4 class="contact-title">LinkedIn</h4>
+                    <a href="https://linkedin.com/in/aftab-00" class="contact-link" target="_blank">Connect with me</a>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">🐙</div>
+                    <h4 class="contact-title">GitHub</h4>
+                    <a href="https://github.com/Aftab-00" class="contact-link" target="_blank">Check out my code</a>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">📍</div>
+                    <h4 class="contact-title">Location</h4>
+                    <span class="contact-link">Hyderabad, India</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="https://linkedin.com/in/aftab-00" class="social-link" target="_blank">💼</a>
+                <a href="https://github.com/Aftab-00" class="social-link" target="_blank">🐙</a>
+            </div>
+            <p style="color: var(--text-muted);">
+                © 2025 Shaik Mohammad Aftab. Built with ❤️ and attention to quality.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">↑</button>
+
+    <script>
+        // Theme Management
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+
+        // Check for saved theme preference or default to light
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        body.setAttribute('data-theme', currentTheme);
+
+        themeToggle.addEventListener('click', () => {
+            const theme = body.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+            body.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+        });
+
+        // File Switcher Management
+        const fileSwitcher = document.getElementById('fileSwitcher');
+
+        // Set initial state - we're currently on portfolio.html so mark it as active
+        fileSwitcher.classList.add('portfolio');
+
+        fileSwitcher.addEventListener('click', () => {
+            const isCurrentlyPortfolio = fileSwitcher.classList.contains('portfolio');
+
+            if (isCurrentlyPortfolio) {
+                // Switch to index.html (classic version)
+                window.location.href = 'index.html';
+            } else {
+                // Switch to portfolio.html (modern version)
+                window.location.href = 'portfolio.html';
+            }
+        });
+
+        // Add keyboard support for file switcher
+        fileSwitcher.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                fileSwitcher.click();
+            }
+        });
+
+
+        // Scroll Indicator
+        window.addEventListener('scroll', () => {
+            const scrollIndicator = document.getElementById('scrollIndicator');
+            const scrollPercentage = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+            scrollIndicator.style.transform = `scaleX(${scrollPercentage / 100})`;
+        });
+
+        // Back to Top Button
+        const backToTop = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Smooth Scrolling for Navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animated Background Particles
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+
+            const size = Math.random() * 5 + 2;
+            particle.style.width = size + 'px';
+            particle.style.height = size + 'px';
+            particle.style.left = Math.random() * window.innerWidth + 'px';
+            particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+            particle.style.animationDelay = Math.random() * 2 + 's';
+
+            document.getElementById('bgAnimation').appendChild(particle);
+
+            setTimeout(() => {
+                particle.remove();
+            }, 20000);
+        }
+
+        // Create particles periodically
+        setInterval(createParticle, 2000);
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in-up');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards and sections
+        document.querySelectorAll('.card, .skill-item, .cert-card, .contact-card, .timeline-item').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenu = document.getElementById('mobileMenu');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('show');
+        });
+
+        // Performance optimization: Debounce scroll events
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            }
+        }
+
+        // Optimize scroll handlers
+        const optimizedScrollHandler = debounce(() => {
+            const scrollIndicator = document.getElementById('scrollIndicator');
+            const scrollPercentage = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+            scrollIndicator.style.transform = `scaleX(${scrollPercentage / 100})`;
+
+            const backToTop = document.getElementById('backToTop');
+            if (window.scrollY > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        }, 10);
+
+        window.addEventListener('scroll', optimizedScrollHandler);
+
+        // Preload critical images
+        const preloadImages = [
+            'https://avatars.githubusercontent.com/u/87675058?v=4'
+        ];
+
+        preloadImages.forEach(src => {
+            const img = new Image();
+            img.src = src;
+        });
+
+        // Add click animations to buttons
+        document.querySelectorAll('.btn, .skill-item, .cert-card, .contact-card').forEach(element => {
+            element.addEventListener('click', function(e) {
+                const ripple = document.createElement('span');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+
+                ripple.style.cssText = `
+                    position: absolute;
+                    border-radius: 50%;
+                    background: rgba(255, 255, 255, 0.6);
+                    transform: scale(0);
+                    animation: ripple 0.6s linear;
+                    left: ${x}px;
+                    top: ${y}px;
+                    width: ${size}px;
+                    height: ${size}px;
+                `;
+
+                this.style.position = 'relative';
+                this.style.overflow = 'hidden';
+                this.appendChild(ripple);
+
+                setTimeout(() => ripple.remove(), 600);
+            });
+        });
+
+        // Add ripple animation styles
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>

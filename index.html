@@ -68,71 +68,535 @@
           top: 6px;
         }
 
-        /* Improved theme toggle with better accessibility */
-        .theme-toggle {
-          position: fixed;
-          top: 20px;
-          right: 20px;
-          z-index: 9999;
-          background: var(--section-bg);
-          border: 2px solid var(--section-border);
-          border-radius: 50px;
-          padding: 4px;
-          cursor: pointer;
-          transition: all 0.3s ease;
-          box-shadow: 0 4px 12px var(--hover-shadow);
-          width: 60px;
-          height: 32px;
-          display: flex;
-          align-items: center;
-          justify-content: flex-start;
-        }
-
-        .theme-toggle:hover {
-          transform: scale(1.05);
-          box-shadow: 0 6px 18px var(--hover-shadow);
-        }
-
+        /* Remove the old toggle-switch styles */
         .toggle-switch {
-          position: absolute;
-          left: 4px;
-          width: 24px;
-          height: 24px;
-          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-          border-radius: 50%;
-          transition: all 0.3s ease;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 12px;
-          color: white;
-          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-        }
-
-        [data-theme="dark"] .toggle-switch {
-          left: 32px;
-          background: linear-gradient(135deg, #2D3748 0%, #1A202C 100%);
+          display: none;
         }
 
         .toggle-icon {
-          transition: all 0.3s ease;
-          position: absolute;
+          display: none;
         }
 
-        [data-theme="light"] .sun-icon {
-          opacity: 1;
+        /* Toggle Container - Fixed alignment issues */
+        .toggles-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--section-border);
+            border-radius: 50px;
+            padding: 8px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            min-height: 48px;
         }
 
-        [data-theme="light"] .moon-icon {
-          opacity: 0;
+        [data-theme="dark"] .toggles-container {
+            background: rgba(30, 37, 50, 0.2);
+            border-color: var(--section-border);
         }
 
-        [data-theme="dark"] .sun-icon {
-          opacity: 0;
+        /* File Switcher Toggle - Perfectly aligned */
+        .file-switcher {
+            background: var(--section-bg);
+            border: 1px solid var(--section-border);
+            border-radius: 50px;
+            width: 110px;
+            height: 32px;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            overflow: hidden;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        [data-theme="dark"] .moon-icon {
-          opacity: 1;
+        .file-switcher:hover {
+            border-color: #667eea;
+            box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.1);
+        }
+
+        .switcher-slider {
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            width: 50px;
+            height: 26px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 20px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 9px;
+            color: white;
+            font-weight: 600;
+            box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+        }
+
+        .file-switcher.portfolio .switcher-slider {
+            left: 57px;
+        }
+
+        .switcher-labels {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 16px;
+            font-size: 10px;
+            font-weight: 600;
+            color: var(--text-color);
+            pointer-events: none;
+        }
+
+        .switcher-label {
+            transition: all 0.3s ease;
+            z-index: 1;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 45px;
+        }
+
+        .file-switcher.portfolio .switcher-label.classic {
+            color: var(--text-color);
+            opacity: 0.6;
+        }
+
+        .file-switcher.portfolio .switcher-label.modern {
+            color: white;
+            opacity: 1;
+        }
+
+        .file-switcher:not(.portfolio) .switcher-label.classic {
+            color: white;
+            opacity: 1;
+        }
+
+        .file-switcher:not(.portfolio) .switcher-label.modern {
+            color: var(--text-color);
+            opacity: 0.6;
+        }
+
+        /* Theme Toggle - Perfectly aligned with file switcher */
+        .theme-toggle {
+            background: var(--section-bg);
+            border: 1px solid var(--section-border);
+            border-radius: 50px;
+            width: 50px;
+            height: 32px;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .theme-toggle:hover {
+            border-color: #667eea;
+            box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.1);
+        }
+
+        .theme-toggle::before {
+            content: '🌙';
+            position: absolute;
+            left: 6px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 12px;
+            transition: all 0.3s ease;
+            line-height: 1;
+        }
+
+        [data-theme="dark"] .theme-toggle::before {
+            content: '☀️';
+            left: 24px;
+            font-size: 12px;
+        }
+
+        /* Mobile responsiveness - FORCE PERFECT ALIGNMENT */
+        @media (max-width: 768px) {
+            .toggles-container {
+                position: fixed !important;
+                top: 15px !important;
+                right: 15px !important;
+                z-index: 10000 !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                gap: 8px !important;
+                background: rgba(255, 255, 255, 0.1) !important;
+                backdrop-filter: blur(20px) !important;
+                border: 1px solid var(--section-border) !important;
+                border-radius: 40px !important;
+                padding: 6px !important;
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1) !important;
+                min-height: 40px !important;
+                height: auto !important;
+            }
+
+            .file-switcher {
+                background: var(--section-bg) !important;
+                border: 1px solid var(--section-border) !important;
+                border-radius: 50px !important;
+                width: 100px !important;
+                height: 28px !important;
+                position: relative !important;
+                cursor: pointer !important;
+                transition: all 0.3s ease !important;
+                overflow: hidden !important;
+                flex-shrink: 0 !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                margin: 0 !important;
+                float: none !important;
+            }
+
+            .switcher-slider {
+                position: absolute;
+                top: 2px;
+                left: 2px;
+                width: 46px;
+                height: 22px;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                border-radius: 20px;
+                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 8px;
+                color: white;
+                font-weight: 600;
+                box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+            }
+
+            .file-switcher.portfolio .switcher-slider {
+                left: 52px;
+            }
+
+            .switcher-labels {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 0 14px;
+                font-size: 9px;
+                font-weight: 600;
+                color: var(--text-color);
+                pointer-events: none;
+            }
+
+            .switcher-label {
+                transition: all 0.3s ease;
+                z-index: 1;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                max-width: 40px;
+            }
+
+            .theme-toggle {
+                background: var(--section-bg) !important;
+                border: 1px solid var(--section-border) !important;
+                border-radius: 50px !important;
+                width: 45px !important;
+                height: 28px !important;
+                position: relative !important;
+                cursor: pointer !important;
+                transition: all 0.3s ease !important;
+                flex-shrink: 0 !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                overflow: hidden !important;
+                margin: 0 !important;
+                float: none !important;
+                top: auto !important;
+                left: auto !important;
+            }
+
+            .theme-toggle::before {
+                content: '🌙';
+                position: absolute;
+                left: 5px;
+                top: 50%;
+                transform: translateY(-50%);
+                font-size: 11px;
+                transition: all 0.3s ease;
+                line-height: 1;
+            }
+
+            [data-theme="dark"] .theme-toggle::before {
+                content: '☀️';
+                left: 22px;
+                font-size: 11px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .toggles-container {
+                position: fixed !important;
+                top: 12px !important;
+                right: 12px !important;
+                z-index: 10000 !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                gap: 6px !important;
+                background: rgba(255, 255, 255, 0.1) !important;
+                backdrop-filter: blur(20px) !important;
+                border: 1px solid var(--section-border) !important;
+                border-radius: 36px !important;
+                padding: 5px !important;
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1) !important;
+                min-height: 36px !important;
+                height: auto !important;
+            }
+
+            .file-switcher {
+                background: var(--section-bg) !important;
+                border: 1px solid var(--section-border) !important;
+                border-radius: 50px !important;
+                width: 90px !important;
+                height: 26px !important;
+                position: relative !important;
+                cursor: pointer !important;
+                transition: all 0.3s ease !important;
+                overflow: hidden !important;
+                flex-shrink: 0 !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                margin: 0 !important;
+                float: none !important;
+            }
+
+            .switcher-slider {
+                position: absolute;
+                top: 2px;
+                left: 2px;
+                width: 41px;
+                height: 20px;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                border-radius: 20px;
+                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 7px;
+                color: white;
+                font-weight: 600;
+                box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+            }
+
+            .file-switcher.portfolio .switcher-slider {
+                left: 47px;
+            }
+
+            .switcher-labels {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 0 12px;
+                font-size: 8px;
+                font-weight: 600;
+                color: var(--text-color);
+                pointer-events: none;
+            }
+
+            .switcher-label {
+                transition: all 0.3s ease;
+                z-index: 1;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                max-width: 35px;
+            }
+
+            .theme-toggle {
+                background: var(--section-bg) !important;
+                border: 1px solid var(--section-border) !important;
+                border-radius: 50px !important;
+                width: 42px !important;
+                height: 26px !important;
+                position: relative !important;
+                cursor: pointer !important;
+                transition: all 0.3s ease !important;
+                flex-shrink: 0 !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                overflow: hidden !important;
+                margin: 0 !important;
+                float: none !important;
+                top: auto !important;
+                left: auto !important;
+            }
+
+            .theme-toggle::before {
+                content: '🌙';
+                position: absolute;
+                left: 5px;
+                top: 50%;
+                transform: translateY(-50%);
+                font-size: 10px;
+                transition: all 0.3s ease;
+                line-height: 1;
+            }
+
+            [data-theme="dark"] .theme-toggle::before {
+                content: '☀️';
+                left: 19px;
+                font-size: 10px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .toggles-container {
+                position: fixed !important;
+                top: 10px !important;
+                right: 10px !important;
+                z-index: 10000 !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                gap: 4px !important;
+                background: rgba(255, 255, 255, 0.1) !important;
+                backdrop-filter: blur(20px) !important;
+                border: 1px solid var(--section-border) !important;
+                border-radius: 34px !important;
+                padding: 4px !important;
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1) !important;
+                min-height: 34px !important;
+                height: auto !important;
+            }
+
+            .file-switcher {
+                background: var(--section-bg) !important;
+                border: 1px solid var(--section-border) !important;
+                border-radius: 50px !important;
+                width: 85px !important;
+                height: 24px !important;
+                position: relative !important;
+                cursor: pointer !important;
+                transition: all 0.3s ease !important;
+                overflow: hidden !important;
+                flex-shrink: 0 !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                margin: 0 !important;
+                float: none !important;
+            }
+
+            .switcher-slider {
+                position: absolute;
+                top: 2px;
+                left: 2px;
+                width: 38px;
+                height: 18px;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                border-radius: 20px;
+                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 6px;
+                color: white;
+                font-weight: 600;
+                box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+            }
+
+            .file-switcher.portfolio .switcher-slider {
+                left: 45px;
+            }
+
+            .switcher-labels {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 0 10px;
+                font-size: 7px;
+                font-weight: 600;
+                color: var(--text-color);
+                pointer-events: none;
+            }
+
+            .switcher-label {
+                transition: all 0.3s ease;
+                z-index: 1;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                max-width: 32px;
+            }
+
+            .theme-toggle {
+                background: var(--section-bg) !important;
+                border: 1px solid var(--section-border) !important;
+                border-radius: 50px !important;
+                width: 38px !important;
+                height: 24px !important;
+                position: relative !important;
+                cursor: pointer !important;
+                transition: all 0.3s ease !important;
+                flex-shrink: 0 !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                overflow: hidden !important;
+                margin: 0 !important;
+                float: none !important;
+                top: auto !important;
+                left: auto !important;
+            }
+
+            .theme-toggle::before {
+                content: '🌙';
+                position: absolute;
+                left: 4px;
+                top: 50%;
+                transform: translateY(-50%);
+                font-size: 9px;
+                transition: all 0.3s ease;
+                line-height: 1;
+            }
+
+            [data-theme="dark"] .theme-toggle::before {
+                content: '☀️';
+                left: 17px;
+                font-size: 9px;
+            }
         }
 
         body {
@@ -974,7 +1438,61 @@
           }
         }
 
-        // Improved initialization with error handling
+        // Toggle function for file switcher
+        function toggleFileSwitcher() {
+          const fileSwitcher = document.querySelector('.file-switcher');
+          const isPortfolio = fileSwitcher.classList.contains('portfolio');
+
+          if (isPortfolio) {
+            // Switch to index.html (we're already here, but let's update the UI)
+            fileSwitcher.classList.remove('portfolio');
+            updateSwitcherUI(false);
+          } else {
+            // Switch to portfolio.html (modern version)
+            window.location.href = 'portfolio.html';
+          }
+        }
+
+        function updateSwitcherUI(isPortfolio) {
+          const fileSwitcher = document.querySelector('.file-switcher');
+          const slider = fileSwitcher.querySelector('.switcher-slider');
+          const classicLabel = fileSwitcher.querySelector('.switcher-label.classic');
+          const modernLabel = fileSwitcher.querySelector('.switcher-label.modern');
+
+          // Update slider position
+          slider.style.left = isPortfolio ? '41px' : '3px';
+
+          // Update label opacity
+          classicLabel.style.opacity = isPortfolio ? '0.6' : '1';
+          modernLabel.style.opacity = isPortfolio ? '1' : '0.6';
+
+          // Announce switch for screen readers
+          const announcement = document.createElement('div');
+          announcement.setAttribute('aria-live', 'polite');
+          announcement.setAttribute('aria-atomic', 'true');
+          announcement.className = 'sr-only';
+          announcement.textContent = `Viewing ${isPortfolio ? 'Modern' : 'Classic'} portfolio version`;
+          document.body.appendChild(announcement);
+          setTimeout(() => document.body.removeChild(announcement), 1000);
+        }
+
+        // Add keyboard support for file switcher
+        document.addEventListener('DOMContentLoaded', function() {
+          const fileSwitcher = document.querySelector('.file-switcher');
+          if (fileSwitcher) {
+            fileSwitcher.addEventListener('keydown', function(e) {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                toggleFileSwitcher();
+              }
+            });
+
+            // Initialize the switcher to show we're on the classic version
+            updateSwitcherUI(false);
+          }
+        });
+
+        // Enhanced initialization with error handling
         document.addEventListener('DOMContentLoaded', function() {
           // Initialize theme
           initTheme();
@@ -1180,19 +1698,17 @@
 <!-- Skip link for accessibility -->
 <a href="#main-content" class="skip-link">Skip to main content</a>
 
-<!-- Loading Screen -->
-<div class="loading" role="status" aria-label="Loading">
-    <div class="spinner"></div>
-    <span class="sr-only">Loading portfolio...</span>
-</div>
-
-<!-- Theme Toggle Button -->
-<button class="theme-toggle" onclick="toggleTheme()" title="Toggle Dark/Light Mode" aria-label="Toggle between dark and light theme" tabindex="0">
-    <div class="toggle-switch">
-        <span class="toggle-icon sun-icon" aria-hidden="true">☀️</span>
-        <span class="toggle-icon moon-icon" aria-hidden="true">🌙</span>
+<!-- Toggles Container - Same structure as portfolio.html -->
+<div class="toggles-container">
+    <div class="file-switcher" onclick="toggleFileSwitcher()" title="Switch Portfolio Version" aria-label="Switch between Resume and Interactive portfolio versions" tabindex="0">
+        <div class="switcher-slider"></div>
+        <div class="switcher-labels">
+            <span class="switcher-label classic">Resume</span>
+            <span class="switcher-label modern">Live</span>
+        </div>
     </div>
-</button>
+    <div class="theme-toggle" onclick="toggleTheme()" title="Toggle Dark/Light Mode" aria-label="Toggle between dark and light theme" tabindex="0"></div>
+</div>
 
 <!-- Scroll to Top Button -->
 <button class="scroll-to-top" onclick="scrollToTop()" title="Scroll to Top" aria-label="Scroll to top of page" aria-hidden="true">
@@ -1211,17 +1727,17 @@
         <h2 class="contacts-heading">Contacts</h2>
         <nav class="contact" aria-label="Contact links">
             <a href="https://github.com/Aftab-00" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-<!--                <img src="https://static.cdnlogo.com/logos/g/48/github-icon_800.png" alt="GitHub icon">-->
+                <!--                <img src="https://static.cdnlogo.com/logos/g/48/github-icon_800.png" alt="GitHub icon">-->
                 <img src="https://skillicons.dev/icons?i=github" alt="GitHub icon">
             </a>
             <a href="mailto:aftabshaikmohammad@gmail.com" aria-label="Email">
-<!--                <img src="https://static.cdnlogo.com/logos/o/69/official-gmail-icon-2020_800.png" alt="Email icon">-->
+                <!--                <img src="https://static.cdnlogo.com/logos/o/69/official-gmail-icon-2020_800.png" alt="Email icon">-->
                 <img src="https://skillicons.dev/icons?i=gmail" alt="Email icon">
             </a>
             <a href="https://linkedin.com/in/aftab-sk-md" target="_blank" rel="noopener noreferrer"
                aria-label="LinkedIn">
                 <img src="https://skillicons.dev/icons?i=linkedin" alt="LinkedIn icon">
-<!--                <img src="https://s6.imgcdn.dev/Yi5SxH.png" alt="LinkedIn icon">-->
+                <!--                <img src="https://s6.imgcdn.dev/Yi5SxH.png" alt="LinkedIn icon">-->
             </a>
         </nav>
     </div>
@@ -1517,5 +2033,3 @@
 </main>
 </body>
 </html>
-
-<!-- Comment LOL -->
